@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Pipeliner</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <header id="main-header">
+    <h1>Pipeliner</h1>
+  </header>
+  <main>
+    <section id="program-container">
+      <h2>Program</h2>
+      <div id="program-content">
+        <pre class="code-block collapsible">
+          <code>
+void reshape(int w, int h) {
+    glViewport(0, 0, w, h);
+    glMatrixMode(GL_PROJECTION);
+    glLoadIdentity();
+    glOrtho(0, 50, 0, 50, -1, 1);
+    glMatrixMode(GL_MODELVIEW);
+    glLoadIdentity();
+}
+          </code>
+        </pre>
+        <pre class="code-block collapsible">
+          <code>
+void drawScene() {
+    glClear(GL_COLOR_BUFFER_BIT);
+    glPushMatrix();
+        glTranslatef(25, 0, 0);
+        glBegin(GL_TRIANGLE_FAN);
+            glVertex2f(-0.2, -0.2);
+            glVertex2f( 0.2, -0.2);
+            glVertex2f( 0.2,  0.2);
+            glVertex2f(-0.2,  0.2);
+        glEnd();
+    glPopMatrix();
+    glFlush();
+}
+          </code>
+        </pre>
+      </div>
+    </section>
+    <div id="visualization-container">
+      <section id="metaphor-container">
+        <!-- metáfora vem aqui -->
+      </section>
+      <section id="steps-container">
+        <img src="img/pt/geometry-sub-phases.png" alt="" class="step-image">
+        <img src="img/pt/main-pipeline-phases.png" alt="" class="step-image">
+      </section>
+    </section>
+  </main>
+
+  <div id="metaphor-modelview" class="metaphor-matrix-multiplies-vertices">
+
+  </div>
+
+
+  <script src="bundle.js"></script>
+</body>
+</html>

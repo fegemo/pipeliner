@@ -1,0 +1,8 @@
+#steps-container {
+  background-color: silver;
+}
+
+.step-image {
+  display: block;
+  margin: 0 auto;
+}

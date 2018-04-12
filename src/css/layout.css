@@ -1,0 +1,82 @@
+:root {
+  --mainColor: #08b178ff;
+  --darkenedMainColor: color( var(--mainColor) blackness(+20%) );
+  --shadowColor: #0001;
+  --headerHeight: calc(1.25rem + 0.15rem * 2);
+}
+
+/* cssnext: custom media queries */
+@custom-media --mobile (width <= 640px);
+
+/* cssnext: custom selectors */
+@custom-selector :--heading h1, h2, h3, h4, h5, h6;
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+}
+
+html, body {
+  height: 100%;
+}
+
+:--heading {
+  margin-top: 0;
+}
+
+/* Nesting via postcss-nested */
+main {
+  /*:--heading {
+    text-rendering: optimizeLegibility;
+    color: color( var(--mainColor) blackness(+20%) );
+  }*/
+
+  display: flex;
+  flex-direction: row;
+  position: relative;
+  justify-content: stretch;
+  height: calc(100% - var(--headerHeight));
+}
+
+
+#program-container {
+  flex: 0.2;
+  height: 100%;
+  border-right: 1px solid var(--mainColor);
+  box-shadow: 4px 4px 4px var(--shadowColor);
+}
+
+#visualization-container {
+  flex: 0.8;
+  display: flex;
+  flex-direction: column;
+  justify-content: stretch;
+}
+
+#metaphor-container {
+  flex: 0.8;
+}
+
+#steps-container {
+  flex: 0.2;
+}
+/*@media (--mobile) {
+  :--heading {
+    margin-top: 0;
+  }
+}*/
+
+#main-header {
+  background-color: black;
+  color: white;
+}
+
+#main-header h1 {
+  margin: 0 auto;
+  padding: 0.15rem;
+  font-size: 1.25rem;
+  font-family: monospace;
+}
